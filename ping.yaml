@@ -1,0 +1,5 @@
+- name: ping the serevers
+  hosts: temp_server
+  tasks:
+  - name: ping the serevers
+    ansible.builtin.ping:
