@@ -1,0 +1,22 @@
+---
+- name: Install NGINX on clients
+  hosts: all
+  become: true  # To run tasks with sudo
+  tasks:
+    - name: Install NGINX
+      apt:
+        name: nginx
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Install NGINX
+      yum:
+        name: nginx
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: Ensure NGINX is running and enabled
+      service:
+        name: nginx
+        state: started
+        enabled: yes
