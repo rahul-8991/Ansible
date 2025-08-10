@@ -1,5 +1,5 @@
 - name: gathering facts
-  hosts: local
+  hosts: localhost
   connection: local
   tasks:
   - name: print facts
