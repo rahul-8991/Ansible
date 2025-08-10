@@ -4,9 +4,14 @@
   connection: local
   become: yes
   tasks:
-  - name: install nginx if os distribution is "RedHat"
+  - name: install httpd if os distribution is "RedHat"
     ansible.builtin.dnf:
       name: httpd
       state: present
     when: ansible_os_family == "RedHat"
-     
+
+  - name: run httpd service
+    ansible.builtin.service:
+      name: httpd
+      state: started
+      enabled: yes
