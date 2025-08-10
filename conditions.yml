@@ -1,0 +1,12 @@
+---
+- name : when condition playbook
+  hosts: localhost
+  connection: local
+  become: yes
+  tasks:
+  - name: install nginx if os distribution is "RedHat"
+    ansible.builtin.dnf:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+     
