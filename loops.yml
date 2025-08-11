@@ -11,4 +11,4 @@
     loop:
       - { name: 'nginx', state: 'present' }
       - { name: 'httpd', state: 'absent' }
-      - { name: 'nginx', state: 'present' }
+      - { name: 'mysql', state: 'present' }
