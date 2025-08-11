@@ -2,8 +2,12 @@
 - name: register example
   hosts: localhost
   connection: local
+  gather_facts: false
   tasks:
-    - ansible.builtin.command: "uname -a"
+    - name: Run uname command
+      ansible.builtin.command: "uname -a"
       register: command_result
-    - ansible.builtin.debug:
-      msg: "{{ command_result.stdout }}"
+
+    - name: Show command output
+      ansible.builtin.debug:
+        msg: "{{ command_result.stdout }}"
