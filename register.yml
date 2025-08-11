@@ -1,0 +1,9 @@
+---
+- name: register example
+  hosts: localhost
+  connection: local
+  tasks:
+    ansible.builtin.command: "uname -a"
+    register: command_result
+    ansible.builtin.debug:
+      msg: "{{ command_result.stdout }}"
